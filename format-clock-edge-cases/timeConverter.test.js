@@ -27,3 +27,7 @@ test("can correctly convert time with hour being 00 to show as 12 am", function(
     assert.equal(formatAs12HourClock("00:00"), "12:00 am");
     assert.equal(formatAs12HourClock("00:30"), "12:30 am");
 });
+
+test("can correctly convert time with just after midnight to still show 12 am with minutes added", function(){
+    assert.equal(formatAs12HourClock("00:01"), "12:01 am");
+});
