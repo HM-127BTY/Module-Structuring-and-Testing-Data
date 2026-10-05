@@ -5,6 +5,8 @@ function formatAs12HourClock(time) {
 
   if (hours === 12) {
     return `${time} pm`
+  } else if (hours === 0) {
+    return `${(hours + 12).toString().padStart(2, "0")}:${(min).toString().padStart(2, "0")} am`
   } else if (hours > 12) {
     return `${(hours - 12).toString().padStart(2, "0")}:${(min).toString().padStart(2, "0")} pm`
   };

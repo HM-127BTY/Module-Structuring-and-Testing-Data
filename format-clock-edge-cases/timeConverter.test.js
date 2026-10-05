@@ -8,6 +8,7 @@ test("correctly convert time after 12:00", function(){
 
 test("can correctly convert morning time", function() {
     assert.equal(formatAs12HourClock("08:00"), "08:00 am");
+    assert.equal(formatAs12HourClock("01:00"), "01:00 am");
 });
 
 test("can correctly convert time with minutes for am", function(){
@@ -20,4 +21,9 @@ test("can correctly convert time with minutes for pm", function(){
 
 test("can correctly convert time with minutes with 0 pad such as 12:04", function(){
     assert.equal(formatAs12HourClock("13:04"), "01:04 pm");
+});
+
+test("can correctly convert time with hour being 00 to show as 12 am", function(){
+    assert.equal(formatAs12HourClock("00:00"), "12:00 am");
+    assert.equal(formatAs12HourClock("00:30"), "12:30 am");
 });
