@@ -31,3 +31,19 @@ test("can correctly convert time with hour being 00 to show as 12 am", function 
 test("can correctly convert time with just after midnight to still show 12 am with minutes added", function () {
   assert.equal(formatAs12HourClock("00:01"), "12:01 am");
 });
+
+test("last minute before 12 pm", function () {
+  assert.equal(formatAs12HourClock("11:59"), "11:59 am");
+});
+test("noon is 12 pm", function () {
+  assert.equal(formatAs12HourClock("12:00"), "12:00 pm");
+});
+test("first minute after noon", function () {
+  assert.equal(formatAs12HourClock("12:01"), "12:01 pm");
+});
+test("first hour after noon is 1 pm", function () {
+  assert.equal(formatAs12HourClock("13:00"), "01:00 pm");
+});
+test("last minute before midnight", function () {
+  assert.equal(formatAs12HourClock("23:59"), "11:59 pm");
+});
