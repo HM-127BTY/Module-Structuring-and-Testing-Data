@@ -26,5 +26,7 @@ export function getAngleType(angle) {
     return "Obtuse angle";
   } else if (angle === 180) {
     return "Straight angle";
+  } else if (angle < 360 && angle > 180) {
+    return "Reflex angle";
   }
 }
