@@ -20,5 +20,7 @@ export function getAngleType(angle) {
   // TODO: Implement this function
   if (angle === 90) {
     return "Right angle";
+  } else if (angle <= 90 && angle >= 0) {
+    return "Acute angle";
   }
 }
