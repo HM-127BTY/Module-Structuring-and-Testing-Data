@@ -19,7 +19,7 @@ test("Arbitrary non-card string", () => {
 
 // TODO: What other invalid card cases can you think of?
 //Incorrect suit
-test("Arbitrary non-card string", () => {
+test("Incorrect suit", () => {
   assert.throws(
     () => getCardValue("2☺"),
     /Expected a number followed by a suit, but got "invalid"/,

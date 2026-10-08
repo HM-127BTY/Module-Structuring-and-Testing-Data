@@ -26,14 +26,16 @@
 export function getCardValue(card) {
   // TODO: Implement this function
   let suit = card.slice(-1);
-  let cardNumber = card.slice(0, 1);
+  let cardNumber = card.slice(0, -1);
   let value = Number(cardNumber);
 
   if (!(suit === "♠" || suit === "♥" || suit === "♦" || suit === "♣")) {
-    throw new "Incorrect suit"();
+    throw new Error("Incorrect suit");
   } else if (cardNumber === "J" || cardNumber === "Q" || cardNumber === "K") {
     return 10;
   } else if (cardNumber === "A") {
     return 11;
-  }
+  } else if (value >= 2 && value <= 10) {
+    return value;
+  } else throw new Error("Expected a number followed by a suit, but got "invalid"");
 }
