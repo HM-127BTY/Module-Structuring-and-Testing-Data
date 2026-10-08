@@ -22,7 +22,7 @@ test("Arbitrary non-card string", () => {
 test("Incorrect suit", () => {
   assert.throws(
     () => getCardValue("2☺"),
-    /Expected a number followed by a suit, but got "invalid"/,
+    /Incorrect suit given/,
     "Incorrect suit"
   );
 });

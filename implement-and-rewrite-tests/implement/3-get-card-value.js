@@ -29,13 +29,15 @@ export function getCardValue(card) {
   let cardNumber = card.slice(0, -1);
   let value = Number(cardNumber);
 
-  if (!(suit === "♠" || suit === "♥" || suit === "♦" || suit === "♣")) {
-    throw new Error("Incorrect suit");
+  if (card.length >= 4) {
+    throw new Error(`Expected a number followed by a suit, but got "invalid"`);
+  } else if (!(suit === "♠" || suit === "♥" || suit === "♦" || suit === "♣")) {
+    throw new Error("Incorrect suit given");
   } else if (cardNumber === "J" || cardNumber === "Q" || cardNumber === "K") {
     return 10;
   } else if (cardNumber === "A") {
     return 11;
   } else if (value >= 2 && value <= 10) {
     return value;
-  } else throw new Error("Expected a number followed by a suit, but got "invalid"");
+  }
 }
