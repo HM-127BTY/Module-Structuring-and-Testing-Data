@@ -10,7 +10,22 @@ test("Valid single-digit card", () => {
 });
 
 test("Arbitrary non-card string", () => {
-  assert.throws(() => getCardValue("invalid"), /Expected a number followed by a suit, but got "invalid"/, "Expected clear error");
+  assert.throws(
+    () => getCardValue("invalid"),
+    /Expected a number followed by a suit, but got "invalid"/,
+    "Expected clear error"
+  );
 });
 
 // TODO: What other invalid card cases can you think of?
+//Incorrect suit
+test("Arbitrary non-card string", () => {
+  assert.throws(
+    () => getCardValue("2☺"),
+    /Expected a number followed by a suit, but got "invalid"/,
+    "Incorrect suit"
+  );
+});
+//Incorrect value
+
+//Incorrect order
