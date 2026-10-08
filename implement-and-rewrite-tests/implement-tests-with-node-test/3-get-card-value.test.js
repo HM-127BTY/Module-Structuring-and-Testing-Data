@@ -26,6 +26,3 @@ test("Incorrect suit", () => {
     "Incorrect suit"
   );
 });
-//Incorrect value
-
-//Incorrect order
