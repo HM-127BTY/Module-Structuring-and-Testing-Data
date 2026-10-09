@@ -6,3 +6,35 @@ import { isProperFraction } from "../implement/2-is-proper-fraction.js";
 test(`should return false when denominator is zero`, () => {
   expect(isProperFraction(1, 0)).toEqual(false);
 });
+
+// Special case: Basic proper fraction: Numerator < Denominator
+test(`should return true when: Numerator < Denominator`, () => {
+  expect(isProperFraction(1, 2)).toEqual(true);
+  expect(isProperFraction(3, 6)).toEqual(true);
+  expect(isProperFraction(45, 60)).toEqual(true);
+});
+
+// Special case: Improper fraction: Numerator = Denominator
+// test(`should return false when denominator is zero`, () => {
+//   expect(isProperFraction(1, 0)).toEqual(false);
+// });
+
+// Special case: improper fraction: Numerator > Denominator
+// test(`should return false when denominator is zero`, () => {
+//   expect(isProperFraction(1, 0)).toEqual(false);
+// });
+
+// Special case: Improper fraction: Denominator = 0
+// test(`should return false when denominator is zero`, () => {
+//   expect(isProperFraction(1, 0)).toEqual(false);
+// });
+
+// Special case: Proper fraction with negative number: -Numerator < Denominator
+// test(`should return false when denominator is zero`, () => {
+//   expect(isProperFraction(1, 0)).toEqual(false);
+// });
+
+// Special case: Improper fraction with negative number: -Numerator > Denominator
+// test(`should return false when denominator is zero`, () => {
+//   expect(isProperFraction(1, 0)).toEqual(false);
+// });
