@@ -26,3 +26,12 @@ test("Incorrect suit", () => {
     "Incorrect suit"
   );
 });
+
+//Incorrect card value
+test("Incorrect card number", () => {
+  assert.throws(
+    () => getCardValue("20"),
+    /Incorrect card number given/,
+    "Incorrect card number"
+  );
+});

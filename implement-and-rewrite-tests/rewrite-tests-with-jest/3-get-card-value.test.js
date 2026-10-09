@@ -26,9 +26,9 @@ test(`Should return 10 when given a J, Q, K`, () => {
 
 //   Invalid Cards
 test(`Should throw error 'expected a number followed by a suit, but got "invalid"' with invalid card`, () => {
-  expect(() => getCardValue("12♥")).toThrow;
+  expect(() => getCardValue("120♥")).toThrow;
   new Error('expected a number followed by a suit, but got "invalid"');
-  expect(() => getCardValue("20♦")).toThrow;
+  expect(() => getCardValue("203♦")).toThrow;
   new Error('expected a number followed by a suit, but got "invalid"');
 });
 // To learn how to test whether a function throws an error as expected in Jest,
