@@ -39,3 +39,8 @@ test(`Should throw error "Incorrect suit given" when given wrong symbol"`, () =>
   expect(() => getCardValue("2☺")).toThrow;
   new Error("Incorrect suit given");
 });
+
+test(`Should throw error "Incorrect card number given" when given wrong 2 digit number"`, () => {
+  expect(() => getCardValue("25♠")).toThrow;
+  new Error("Incorrect card given");
+});

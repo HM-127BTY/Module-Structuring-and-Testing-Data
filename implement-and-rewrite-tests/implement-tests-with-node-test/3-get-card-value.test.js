@@ -32,6 +32,6 @@ test("Incorrect card number", () => {
   assert.throws(
     () => getCardValue("20"),
     /Incorrect card number given/,
-    "Incorrect card number"
+    "Incorrect card number given"
   );
 });

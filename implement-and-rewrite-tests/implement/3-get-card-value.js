@@ -40,6 +40,6 @@ export function getCardValue(card) {
   } else if (value >= 2 && value <= 10) {
     return value;
   } else if (Value > 10) {
-    throw new Error("Incorrect card number");
+    throw new Error("Incorrect card number given");
   }
 }
