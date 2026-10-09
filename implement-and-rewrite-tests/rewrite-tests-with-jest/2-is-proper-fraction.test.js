@@ -28,17 +28,16 @@ test(`should return false when: Numerator > Denominator`, () => {
   expect(isProperFraction(30, 20)).toEqual(false);
 });
 
-// Special case: Improper fraction: Denominator = 0
-// test(`should return false when denominator is zero`, () => {
-//   expect(isProperFraction(1, 0)).toEqual(false);
-// });
-
 // Special case: Proper fraction with negative number: -Numerator < Denominator
-// test(`should return false when denominator is zero`, () => {
-//   expect(isProperFraction(1, 0)).toEqual(false);
-// });
+test(`should return true when: -Numerator < Denominator`, () => {
+  expect(isProperFraction(-1, 2)).toEqual(true);
+  expect(isProperFraction(-6, 8)).toEqual(true);
+  expect(isProperFraction(-10, 20)).toEqual(true);
+});
 
 // Special case: Improper fraction with negative number: -Numerator > Denominator
-// test(`should return false when denominator is zero`, () => {
-//   expect(isProperFraction(1, 0)).toEqual(false);
-// });
+test(`should return false when: -Numerator > Denominator`, () => {
+  expect(isProperFraction(-2, 1)).toEqual(false);
+  expect(isProperFraction(-5, 4)).toEqual(false);
+  expect(isProperFraction(-20, 10)).toEqual(false);
+});
