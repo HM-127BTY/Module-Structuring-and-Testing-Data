@@ -23,10 +23,22 @@ test("Improper fraction: Denominator = 0", () => {
   assert.equal(isProperFraction(1, 0), false);
 });
 
+test("Improper fraction: Nominator = 0", () => {
+  assert.equal(isProperFraction(0, 2), false);
+});
+
 test("Proper fraction with negative number: -Numerator < Denominator", () => {
   assert.equal(isProperFraction(-1, 2), true);
 });
 
+test("Proper fraction with negative number: Numerator < -Denominator", () => {
+  assert.equal(isProperFraction(1, -2), true);
+});
+
 test("Improper fraction with negative number: -Numerator > Denominator", () => {
   assert.equal(isProperFraction(-2, 1), false);
+});
+
+test("Proper fraction with negative numbers: -Numerator < -Denominator", () => {
+  assert.equal(isProperFraction(-1, -2), true);
 });
