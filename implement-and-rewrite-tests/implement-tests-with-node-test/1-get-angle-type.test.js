@@ -34,14 +34,16 @@ test("Classifies Reflex angles", () => {
 test("Classifies Invalid angles", () => {
   const right = getAngleType(361);
   assert.equal(right, "Invalid angle");
+  const right = getAngleType(-361);
+  assert.equal(right, "Invalid angle");
 });
 // - "Zero angle" for angles that are at 0°
-test("Classifies Invalid angles", () => {
+test("Classifies Zero angles", () => {
   const right = getAngleType(0);
   assert.equal(right, "Zero angle");
 });
 // - "Full angle" for angles that are at 360°
-test("Classifies Invalid angles", () => {
+test("Classifies Full angles", () => {
   const right = getAngleType(360);
   assert.equal(right, "Full angle");
 });
