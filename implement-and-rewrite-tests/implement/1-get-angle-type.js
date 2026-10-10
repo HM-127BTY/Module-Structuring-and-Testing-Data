@@ -20,7 +20,7 @@ export function getAngleType(angle) {
   // TODO: Implement this function
   if (angle === 90) {
     return "Right angle";
-  } else if (angle >= 0 && angle < 90) {
+  } else if (angle > 0 && angle < 90) {
     return "Acute angle";
   } else if (angle > 90 && angle < 180) {
     return "Obtuse angle";
@@ -28,7 +28,11 @@ export function getAngleType(angle) {
     return "Straight angle";
   } else if (angle > 180 && angle < 360) {
     return "Reflex angle";
-  } else if (angle <= 0 || angle >= 360) {
+  } else if (angle === 0) {
+    return "Zero angle";
+  } else if (angle === 360) {
+    return "Full angle";
+  } else if (angle < 0 || angle > 360) {
     return "Invalid angle";
   }
 }
