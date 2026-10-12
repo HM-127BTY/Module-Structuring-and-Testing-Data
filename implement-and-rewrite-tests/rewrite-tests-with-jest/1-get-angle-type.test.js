@@ -38,10 +38,10 @@ test(`should return "Invalid angle" when (0 > angle > 360)`, () => {
   expect(getAngleType(-57)).toEqual("Invalid angle");
 });
 // Case 7: Zero angles
-test(`should return "Zero angle" when (angle = 0)`, () => {
-  expect(getAngleType(0)).toEqual("Zero angle");
+test(`should return "Invalid angle" when (angle = 0)`, () => {
+  expect(getAngleType(0)).toEqual("Invalid angle");
 });
 // Case 8: Full angles
-test(`should return "Full angle" when (angle = 360)`, () => {
-  expect(getAngleType(360)).toEqual("Full angle");
+test(`should return "Invalid angle" when (angle = 360)`, () => {
+  expect(getAngleType(360)).toEqual("Invalid angle");
 });
