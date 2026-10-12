@@ -32,7 +32,7 @@ export function getAngleType(angle) {
     return "Invalid angle";
   } else if (angle === 360) {
     return "Invalid angle";
-  } else if (angle < 0 || angle > 360) {
+  } else (angle < 0 || angle > 360) {
     return "Invalid angle";
   }
 }
