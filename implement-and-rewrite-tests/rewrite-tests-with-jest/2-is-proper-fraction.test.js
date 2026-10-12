@@ -60,3 +60,17 @@ test(`should return false when: -Numerator > Denominator`, () => {
   expect(isProperFraction(-5, 4)).toEqual(false);
   expect(isProperFraction(-20, 10)).toEqual(false);
 });
+
+// Special case: Improper fraction with negative Numerator and 0: -Numerator > 0
+test(`should return false when: -Numerator > Denominator`, () => {
+  expect(isProperFraction(-2, 0)).toEqual(false);
+  expect(isProperFraction(-5, 0)).toEqual(false);
+  expect(isProperFraction(-20, 0)).toEqual(false);
+});
+
+// Special case: Improper fraction with 0 and negative Denominator: 0 > -Denominator
+test(`should return false when: -Numerator > Denominator`, () => {
+  expect(isProperFraction(0, -1)).toEqual(false);
+  expect(isProperFraction(0, -4)).toEqual(false);
+  expect(isProperFraction(0, -10)).toEqual(false);
+});
