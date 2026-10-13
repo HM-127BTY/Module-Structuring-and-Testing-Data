@@ -54,6 +54,13 @@ test(`should return true when: -Numerator < Denominator`, () => {
   expect(isProperFraction(-10, 20)).toEqual(true);
 });
 
+// Special case: Proper fraction with both negative number: -Numerator < -Denominator
+test(`should return true when: -Numerator < -Denominator`, () => {
+  expect(isProperFraction(-1, -2)).toEqual(true);
+  expect(isProperFraction(-6, -8)).toEqual(true);
+  expect(isProperFraction(-10, -20)).toEqual(true);
+});
+
 // Special case: Improper fraction with negative number: Numerator > -Denominator
 test(`should return false when: -Numerator > Denominator`, () => {
   expect(isProperFraction(2, -1)).toEqual(false);
