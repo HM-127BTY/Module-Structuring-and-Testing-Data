@@ -27,10 +27,34 @@ test("Incorrect suit", () => {
   );
 });
 
-//Incorrect card value
-test("Incorrect card number", () => {
+//Incorrect card value to high
+test("Incorrect card number: High value", () => {
   assert.throws(
-    () => getCardValue("20"),
+    () => getCardValue("20♦"),
+    /Incorrect card number given/,
+    "Incorrect card number given"
+  );
+});
+//Incorrect card value when negative
+test("Incorrect card number: Negative Number", () => {
+  assert.throws(
+    () => getCardValue("-2♦"),
+    /Incorrect card number given/,
+    "Incorrect card number given"
+  );
+});
+//Incorrect card value when symbol
+test("Incorrect card number: Symbol", () => {
+  assert.throws(
+    () => getCardValue("🐱♦"),
+    /Incorrect card number given/,
+    "Incorrect card number given"
+  );
+});
+//Incorrect card value when letter
+test("Incorrect card number: Letter", () => {
+  assert.throws(
+    () => getCardValue("H♦"),
     /Incorrect card number given/,
     "Incorrect card number given"
   );
