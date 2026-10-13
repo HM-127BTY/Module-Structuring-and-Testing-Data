@@ -1,3 +1,5 @@
-export function countChar(stringOfCharacters, findCharacter) {
-  return 5
+export function countChar(str, char) {
+  let onlyCharacter = str.replace(/char/, "");
+
+  return onlyCharacter.length;
 }
