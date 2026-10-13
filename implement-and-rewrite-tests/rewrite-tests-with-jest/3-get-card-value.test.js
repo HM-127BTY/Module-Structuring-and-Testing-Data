@@ -44,3 +44,18 @@ test(`Should throw error "Incorrect card number given" when given wrong 2 digit 
   expect(() => getCardValue("25♠")).toThrow;
   new Error("Incorrect card given");
 });
+
+test(`Should throw error "Incorrect card number given" when given negative number"`, () => {
+  expect(() => getCardValue("-2♠")).toThrow;
+  new Error("Incorrect card given");
+});
+
+test(`Should throw error "Incorrect card number given" when given a letter"`, () => {
+  expect(() => getCardValue("I♠")).toThrow;
+  new Error("Incorrect card given");
+});
+
+test(`Should throw error "Incorrect card number given" when given symbol"`, () => {
+  expect(() => getCardValue("🐱♠")).toThrow;
+  new Error("Incorrect card given");
+});
