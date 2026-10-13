@@ -25,13 +25,15 @@
 
 export function getCardValue(card) {
   // TODO: Implement this function
+  if (card.length >= 4) {
+    throw new Error(`Expected a number followed by a suit, but got "invalid"`);
+  }
+
   let suit = card.slice(-1);
   let cardNumber = card.slice(0, -1);
   let value = Number(cardNumber);
 
-  if (card.length >= 4) {
-    throw new Error(`Expected a number followed by a suit, but got "invalid"`);
-  } else if (!(suit === "♠" || suit === "♥" || suit === "♦" || suit === "♣")) {
+  if (!(suit === "♠" || suit === "♥" || suit === "♦" || suit === "♣")) {
     throw new Error("Incorrect suit given");
   } else if (cardNumber === "J" || cardNumber === "Q" || cardNumber === "K") {
     return 10;
@@ -39,7 +41,7 @@ export function getCardValue(card) {
     return 11;
   } else if (value >= 2 && value <= 10) {
     return value;
-  } else if (Value > 10) {
+  } else if (value < 2 || value > 10) {
     throw new Error("Incorrect card number given");
   }
 }
