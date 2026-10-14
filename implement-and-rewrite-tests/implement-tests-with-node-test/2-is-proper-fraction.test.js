@@ -15,6 +15,10 @@ test("Improper fraction: Numerator = Denominator", () => {
   assert.equal(isProperFraction(2, 2), false);
 });
 
+test("Improper negative fraction: Numerator = Denominator", () => {
+  assert.equal(isProperFraction(-2, -2), false);
+});
+
 test("improper fraction: Numerator > Denominator", () => {
   assert.equal(isProperFraction(2, 1), false);
 });
@@ -39,6 +43,10 @@ test("Improper fraction with negative number: -Numerator > Denominator", () => {
   assert.equal(isProperFraction(-2, 1), false);
 });
 
+test("Improper fraction with negative number: Numerator > -Denominator", () => {
+  assert.equal(isProperFraction(2, -1), false);
+});
+
 test("Proper fraction with negative numbers: -Numerator < -Denominator", () => {
   assert.equal(isProperFraction(-1, -2), true);
 });
@@ -53,4 +61,8 @@ test("Proper fraction with Zero and negative Denominator: 0 < -Denominator", () 
 
 test("Proper fraction with both being Zero", () => {
   assert.equal(isProperFraction(0, 0), false);
+});
+
+test("Improper fraction with negative numbers: -Numerator > -Denominator", () => {
+  assert.equal(isProperFraction(-3, -2), false);
 });

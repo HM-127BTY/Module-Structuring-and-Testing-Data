@@ -45,6 +45,13 @@ test(`should return false when: Numerator = Denominator`, () => {
   expect(isProperFraction(56, 56)).toEqual(false);
 });
 
+// Special case: Improper negative fraction: -Numerator = -Denominator
+test(`should return false when: Numerator = Denominator`, () => {
+  expect(isProperFraction(-1, -1)).toEqual(false);
+  expect(isProperFraction(-12, -12)).toEqual(false);
+  expect(isProperFraction(-56, -56)).toEqual(false);
+});
+
 // Special case: Improper fraction: Numerator > Denominator
 test(`should return false when: Numerator > Denominator`, () => {
   expect(isProperFraction(3, 2)).toEqual(false);
@@ -70,7 +77,21 @@ test(`should return true when: -Numerator < -Denominator`, () => {
 test(`should return false when: -Numerator > Denominator`, () => {
   expect(isProperFraction(2, -1)).toEqual(false);
   expect(isProperFraction(5, -4)).toEqual(false);
-  expect(isProperFraction(20, -0)).toEqual(false);
+  expect(isProperFraction(20, -10)).toEqual(false);
+});
+
+// Special case: Improper fraction with negative number: Numerator > -Denominator
+test(`should return false when: -Numerator > Denominator`, () => {
+  expect(isProperFraction(-2, 1)).toEqual(false);
+  expect(isProperFraction(-5, 4)).toEqual(false);
+  expect(isProperFraction(-20, 10)).toEqual(false);
+});
+
+// Special case: Improper fraction with both negative: -Numerator > -Denominator
+test(`should return false when: -Numerator > Denominator`, () => {
+  expect(isProperFraction(-2, -1)).toEqual(false);
+  expect(isProperFraction(-5, -4)).toEqual(false);
+  expect(isProperFraction(-20, -10)).toEqual(false);
 });
 
 // Special case: Improper fraction with negative Numerator and 0: -Numerator > 0
