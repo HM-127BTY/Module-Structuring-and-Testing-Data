@@ -44,6 +44,7 @@ test("should repeat the string count 0 times", () => {
 test("should throw an error 'negative counts are not valid'", () => {
   const str = "hello";
   const count = -3;
-  expect(() => repeatedStr(str, count)).toThrow;
-  new Error("negative counts are not valid");
+  expect(() => repeatStr(str, count)).toThrow(
+    new Error("negative counts are not valid")
+  );
 });
