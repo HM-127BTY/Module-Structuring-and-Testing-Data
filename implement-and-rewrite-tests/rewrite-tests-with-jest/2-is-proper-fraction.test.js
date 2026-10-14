@@ -12,6 +12,11 @@ test(`should return false when denominator is zero`, () => {
   expect(isProperFraction(0, 1)).toEqual(false);
 });
 
+// Special case: both are zero
+test(`should return false when denominator is zero`, () => {
+  expect(isProperFraction(0, 0)).toEqual(false);
+});
+
 // Special case: Basic proper fraction: Numerator < Denominator
 test(`should return true when: Numerator < Denominator`, () => {
   expect(isProperFraction(1, 2)).toEqual(true);

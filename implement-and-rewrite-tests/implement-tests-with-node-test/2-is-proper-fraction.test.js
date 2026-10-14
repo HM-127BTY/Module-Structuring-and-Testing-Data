@@ -50,3 +50,7 @@ test("Proper fraction with negative Numerator and Zero: -Numerator < 0", () => {
 test("Proper fraction with Zero and negative Denominator: 0 < -Denominator", () => {
   assert.equal(isProperFraction(0, -2), false);
 });
+
+test("Proper fraction with both being Zero", () => {
+  assert.equal(isProperFraction(0, 0), false);
+});
