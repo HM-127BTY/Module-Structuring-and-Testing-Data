@@ -18,10 +18,19 @@ test("Arbitrary non-card string", () => {
 });
 
 // TODO: What other invalid card cases can you think of?
-//Incorrect suit
+//Incorrect suit as symbol
 test("Incorrect suit", () => {
   assert.throws(
     () => getCardValue("2☺"),
+    /Incorrect suit given/,
+    "Incorrect suit"
+  );
+});
+
+//Incorrect suit as letter
+test("Incorrect suit", () => {
+  assert.throws(
+    () => getCardValue("7l"),
     /Incorrect suit given/,
     "Incorrect suit"
   );
@@ -55,6 +64,24 @@ test("Incorrect card number: Symbol", () => {
 test("Incorrect card number: Letter", () => {
   assert.throws(
     () => getCardValue("H♦"),
+    /Incorrect card number given/,
+    "Incorrect card number given"
+  );
+});
+
+//Incorrect card value when lower case Royal
+test("Incorrect card number: lower case Royal", () => {
+  assert.throws(
+    () => getCardValue("k♦"),
+    /Incorrect card number given/,
+    "Incorrect card number given"
+  );
+});
+
+//Incorrect card value when lower case Ace
+test("Incorrect card number: lower case Ace", () => {
+  assert.throws(
+    () => getCardValue("a♦"),
     /Incorrect card number given/,
     "Incorrect card number given"
   );

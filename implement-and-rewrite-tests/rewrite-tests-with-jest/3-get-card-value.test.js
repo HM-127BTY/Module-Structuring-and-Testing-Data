@@ -25,6 +25,7 @@ test(`Should return 10 when given a J, Q, K`, () => {
 });
 
 //   Invalid Cards
+
 test(`Should throw error 'expected a number followed by a suit, but got "invalid"' with invalid card`, () => {
   expect(() => getCardValue("120♥")).toThrow(
     new Error('expected a number followed by a suit, but got "invalid"')
@@ -41,6 +42,10 @@ test(`Should throw error "Incorrect suit given" when given wrong symbol"`, () =>
   expect(() => getCardValue("2☺")).toThrow(new Error("Incorrect suit given"));
 });
 
+test(`Should throw error "Incorrect suit given" when given wrong letter"`, () => {
+  expect(() => getCardValue("2K")).toThrow(new Error("Incorrect suit given"));
+});
+
 test(`Should throw error "Incorrect card number given" when given wrong 2 digit number"`, () => {
   expect(() => getCardValue("25♠")).toThrow(
     new Error("Incorrect card number given")
@@ -49,6 +54,18 @@ test(`Should throw error "Incorrect card number given" when given wrong 2 digit 
 
 test(`Should throw error "Incorrect card number given" when given negative number"`, () => {
   expect(() => getCardValue("-2♠")).toThrow(
+    new Error("Incorrect card number given")
+  );
+});
+
+test(`Should throw error "Incorrect card number given" when given a lower case Royal"`, () => {
+  expect(() => getCardValue("k♠")).toThrow(
+    new Error("Incorrect card number given")
+  );
+});
+
+test(`Should throw error "Incorrect card number given" when given a lower case Ace"`, () => {
+  expect(() => getCardValue("a♠")).toThrow(
     new Error("Incorrect card number given")
   );
 });
@@ -63,4 +80,8 @@ test(`Should throw error "Incorrect card number given" when given symbol"`, () =
   expect(() => getCardValue("🐱♠")).toThrow(
     new Error("Incorrect card number given")
   );
+});
+
+test(`Should throw error "Input needed" if no imput given`, () => {
+  expect(() => getCardValue("")).toThrow(new Error("Input needed"));
 });
