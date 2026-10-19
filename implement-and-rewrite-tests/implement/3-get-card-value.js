@@ -25,10 +25,10 @@
 
 export function getCardValue(card) {
   // TODO: Implement this function
-  if (card.length >= 4) {
-    throw new Error("Invalid");
-  } else if (card === "") {
+  if (card === "") {
     throw new Error("Input needed");
+  } else if (card.length >= 5) {
+    throw new Error("Invalid");
   }
 
   let suit = card.slice(-1);

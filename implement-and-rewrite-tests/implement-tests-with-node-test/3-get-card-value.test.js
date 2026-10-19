@@ -13,55 +13,6 @@ test("Arbitrary non-card string", () => {
   );
 });
 
-// TODO: What other invalid card cases can you think of?
-//Incorrect suit as symbol
-// test("Incorrect suit", () => {
-//   assert.throws(
-//     () => getCardValue("2☺"),
-//     /Incorrect suit given/,
-//     "Incorrect suit"
-//   );
-// });
-// //Incorrect suit as letter
-// //Incorrect card value to high
-
-// //Incorrect card value when negative
-// test("Incorrect card number: Negative Number", () => {
-//   assert.throws(
-//     () => getCardValue("-2♦"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
-
-// //Incorrect card value when symbol
-// //Incorrect card value when letter
-// test("Incorrect card number: Letter", () => {
-//   assert.throws(
-//     () => getCardValue("H♦"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
-
-// //Incorrect card value when lower case Royal
-// test("Incorrect card number: lower case Royal", () => {
-//   assert.throws(
-//     () => getCardValue("k♦"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
-
-// //Incorrect card value when lower case Ace
-// test("Incorrect card number: lower case Ace", () => {
-//   assert.throws(
-//     () => getCardValue("a♦"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
-
 // for valid case:
 // any of 2-9 (single digit number) with valid suit
 test("Valid single-digit face card", () => {
@@ -83,10 +34,9 @@ test("Valid Ace face card", () => {
   assert.equal(getCardValue("A♠"), 11);
 });
 
-// // for invalid case:
-
+// for invalid case:
 // 1 (single digit number) with valid suit
-test("Incorrect face valuev of 1: 1♦ ", () => {
+test("Incorrect face value of 1: 1♦ ", () => {
   assert.throws(
     () => getCardValue("1♦"),
     /Incorrect face given/,
@@ -130,55 +80,92 @@ test("Incorrect face given: 🐱♦", () => {
   );
 });
 
-// // valid suit with valid face (e.g. "♦6")
-// test("Incorrect order of face and suit: ", () => {
-//   assert.throws(
-//     () => getCardValue("♦6"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
-// // any invalid face with any invalid suit
-// test("Invalid face and suit: 🐱🐱", () => {
-//   assert.throws(
-//     () => getCardValue("🐱🐱"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
+// valid suit with valid face (e.g. "♦6")
+test("Incorrect order of face and suit: ", () => {
+  assert.throws(
+    () => getCardValue("♦6"),
+    /Incorrect suit given/,
+    "Incorrect suit given"
+  );
+});
 
-// // any of 2-9 (valid single digit number) with invalid suit
-// test("Incorrect 2-9 card suit: 2🐱", () => {
-//   assert.throws(
-//     () => getCardValue("2🐱"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
+// any invalid face with any invalid suit
+test("Invalid face and suit: 🐱🐱", () => {
+  assert.throws(
+    () => getCardValue("🐱🐱"),
+    /Incorrect suit given/,
+    "Incorrect suit given"
+  );
+});
 
-// // number 10 (valid double digit number) with invalid suit
-// test("Incorrect 10 card suit: 10🐱", () => {
-//   assert.throws(
-//     () => getCardValue("10🐱"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
+// any of 2-9 (valid single digit number) with invalid suit
+test("Incorrect 2-9 card suit: 2🐱", () => {
+  assert.throws(
+    () => getCardValue("2🐱"),
+    /Incorrect suit given/,
+    "Incorrect suit given"
+  );
+});
 
-// // J/Q/K with invalid suit
-// test("Incorrect J/Q/K card suit: K🐱", () => {
-//   assert.throws(
-//     () => getCardValue("K🐱"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
+// number 10 (valid double digit number) with invalid suit
+test("Incorrect 10 card suit: 10🐱", () => {
+  assert.throws(
+    () => getCardValue("10🐱"),
+    /Incorrect suit given/,
+    "Incorrect suit given"
+  );
+});
 
-// // A with invalid suit
-// test("Incorrect A card suit: A🐱", () => {
-//   assert.throws(
-//     () => getCardValue("A🐱"),
-//     /Incorrect face given/,
-//     "Incorrect face given"
-//   );
-// });
+// J/Q/K with invalid suit
+test("Incorrect J/Q/K card suit: K🐱", () => {
+  assert.throws(
+    () => getCardValue("K🐱"),
+    /Incorrect suit given/,
+    "Incorrect suit given"
+  );
+});
+
+// A with invalid suit
+test("Incorrect A card suit: A🐱", () => {
+  assert.throws(
+    () => getCardValue("A🐱"),
+    /Incorrect suit given/,
+    "Incorrect suit given"
+  );
+});
+
+//Incorrect card value when letter
+test("Incorrect card number: Letter", () => {
+  assert.throws(
+    () => getCardValue("H♦"),
+    /Incorrect face given/,
+    "Incorrect face given"
+  );
+});
+
+//Incorrect card value when lower case Royal
+test("Incorrect card number: lower case Royal", () => {
+  assert.throws(
+    () => getCardValue("k♦"),
+    /Incorrect face given/,
+    "Incorrect face given"
+  );
+});
+
+//Incorrect card value when lower case Ace
+test("Incorrect card number: lower case Ace", () => {
+  assert.throws(
+    () => getCardValue("a♦"),
+    /Incorrect face given/,
+    "Incorrect face given"
+  );
+});
+
+//Incorrect card value when negative
+test("Incorrect card number: Negative Number", () => {
+  assert.throws(
+    () => getCardValue("-2♦"),
+    /Incorrect face given/,
+    "Incorrect face given"
+  );
+});
