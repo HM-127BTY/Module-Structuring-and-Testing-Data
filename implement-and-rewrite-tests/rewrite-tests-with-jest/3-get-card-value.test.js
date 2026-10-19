@@ -2,13 +2,6 @@ import { getCardValue } from "../implement/3-get-card-value.js";
 
 // //   Invalid Cards
 
-// test(`Should throw error 'expected a number followed by a suit, but got "invalid"' with invalid card`, () => {
-//   expect(() => getCardValue("120♥")).toThrow(
-//     new Error('expected a number followed by a suit, but got "invalid"')
-//   );
-//   expect(() => getCardValue("203♦")).toThrow(
-//     new Error('expected a number followed by a suit, but got "invalid"')
-//   );
 // });
 // // To learn how to test whether a function throws an error as expected in Jest,
 // // please refer to the Jest documentation:
@@ -80,13 +73,29 @@ test(`Should return 11 when given an ace card`, () => {
 // for invalid case:
 
 // 1 (single digit number) with valid suit
+test(`Should throw error "Incorrect face given" for face value 1`, () => {
+  expect(() => getCardValue("1♥")).toThrow(new Error("Incorrect face given"));
+});
+
 // 11 (special double digit number) with valid suit
+test(`Should throw error "Incorrect face given" for face value 11`, () => {
+  expect(() => getCardValue("11♥")).toThrow(new Error("Incorrect face given"));
+});
+
 // any of 12-99 (double digit number) with valid suit
+
 // any B-Z except J/Q/K with valid suit
+
 // any invalid face with valid suit
+
 // valid suit with valid face (e.g. "♠9")
+
 // any invalid face with any invalid suit
+
 // any of 2-9 (valid single digit number) with invalid suit
+
 // number 10 (valid double digit number) with invalid suit
+
 // J/Q/K with invalid suit
+
 // A with invalid suit
