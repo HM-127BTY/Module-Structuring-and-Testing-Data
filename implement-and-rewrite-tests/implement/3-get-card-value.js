@@ -41,10 +41,10 @@ export function getCardValue(card) {
   } else if (cardNumber === "A") {
     return 11;
   } else if (Number.isNaN(value)) {
-    throw new Error("Incorrect card number given");
+    throw new Error("Incorrect face given");
   } else if (value >= 2 && value <= 10) {
     return value;
   } else if (value < 2 || value > 10) {
-    throw new Error("Incorrect card number given");
+    throw new Error("Incorrect face given");
   }
 }
