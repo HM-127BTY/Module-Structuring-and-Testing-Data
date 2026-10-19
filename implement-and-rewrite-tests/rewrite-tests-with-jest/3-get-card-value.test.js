@@ -7,10 +7,6 @@ import { getCardValue } from "../implement/3-get-card-value.js";
 // // please refer to the Jest documentation:
 // // https://jestjs.io/docs/expect#tothrowerror
 
-// test(`Should throw error "Incorrect suit given" when given wrong symbol"`, () => {
-//   expect(() => getCardValue("2☺")).toThrow(new Error("Incorrect suit given"));
-// });
-
 // test(`Should throw error "Incorrect suit given" when given wrong letter"`, () => {
 //   expect(() => getCardValue("2K")).toThrow(new Error("Incorrect suit given"));
 // });
@@ -83,16 +79,52 @@ test(`Should throw error "Incorrect face given" for face value 11`, () => {
 });
 
 // any of 12-99 (double digit number) with valid suit
+test(`Should throw error "Incorrect face given" for face value from 12-99`, () => {
+  expect(() => getCardValue("19♥")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("56♥")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("77♥")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("98♥")).toThrow(new Error("Incorrect face given"));
+});
 
 // any B-Z except J/Q/K with valid suit
+test(`Should throw error "Incorrect face given" for face value from B-Z expect J/Q/K`, () => {
+  expect(() => getCardValue("B♥")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("G♥")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("L♥")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("O♥")).toThrow(new Error("Incorrect face given"));
+});
 
 // any invalid face with valid suit
+test(`Should throw error "Incorrect face given" for any invalid face value with valid suit`, () => {
+  expect(() => getCardValue("1♥")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("G♥")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("66♥")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("O♥")).toThrow(new Error("Incorrect face given"));
+});
 
 // valid suit with valid face (e.g. "♠9")
+test(`Should throw error "Incorrect suit given" when suit and face are in wrong order, eg: ♠9`, () => {
+  expect(() => getCardValue("♠9")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("♦4")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("♠K")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("♥A")).toThrow(new Error("Incorrect suit given"));
+});
 
 // any invalid face with any invalid suit
+test(`Should throw error "Incorrect suit given" when invalid suit and face are given`, () => {
+  expect(() => getCardValue("19J")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("14@")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("L$*")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("1B")).toThrow(new Error("Incorrect suit given"));
+});
 
 // any of 2-9 (valid single digit number) with invalid suit
+test(`Should throw error "Incorrect suit given" when given wrong suit with correct face between 2-9"`, () => {
+  expect(() => getCardValue("2☺")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("4☺")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("6☺")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("9☺")).toThrow(new Error("Incorrect suit given"));
+});
 
 // number 10 (valid double digit number) with invalid suit
 
