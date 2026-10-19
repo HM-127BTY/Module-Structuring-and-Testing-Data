@@ -26,7 +26,7 @@
 export function getCardValue(card) {
   // TODO: Implement this function
   if (card.length >= 4) {
-    throw new Error(`Expected a number followed by a suit, but got "invalid"`);
+    throw new Error("Invalid");
   } else if (card === "") {
     throw new Error("Input needed");
   }
