@@ -1,24 +1,5 @@
 import { getCardValue } from "../implement/3-get-card-value.js";
 
-// TODO: Write tests in Jest syntax to cover all possible outcomes.
-
-// // Suggestion: Group the remaining test data into these categories:
-// //   Number Cards (2-10)
-// test(`Should return number value when given an numbered card`, () => {
-//   expect(getCardValue("2♠")).toEqual(2);
-//   expect(getCardValue("7♥")).toEqual(7);
-//   expect(getCardValue("9♦")).toEqual(9);
-//   expect(getCardValue("5♠")).toEqual(5);
-// });
-
-// //   Face Cards (J, Q, K)
-// test(`Should return 10 when given a J, Q, K`, () => {
-//   expect(getCardValue("J♠")).toEqual(10);
-//   expect(getCardValue("Q♥")).toEqual(10);
-//   expect(getCardValue("K♦")).toEqual(10);
-//   expect(getCardValue("J♠")).toEqual(10);
-// });
-
 // //   Invalid Cards
 
 // test(`Should throw error 'expected a number followed by a suit, but got "invalid"' with invalid card`, () => {
@@ -72,10 +53,27 @@ import { getCardValue } from "../implement/3-get-card-value.js";
 // for valid case:
 
 // any of 2-9 (single digit number) with valid suit
+test(`Should return 1-9 value when given 1-9 face card`, () => {
+  expect(getCardValue("2♠")).toEqual(2);
+  expect(getCardValue("7♥")).toEqual(7);
+  expect(getCardValue("9♦")).toEqual(9);
+  expect(getCardValue("5♠")).toEqual(5);
+});
+
 // number 10 (double digit number) with valid suit
+test(`Should return 10 value when given an 10 face card`, () => {
+  expect(getCardValue("2♠")).toEqual(2);
+});
+
 // J/Q/K with valid suit (because they should return 10)
+test(`Should return 10 when given a J, Q, K face card`, () => {
+  expect(getCardValue("J♠")).toEqual(10);
+  expect(getCardValue("Q♥")).toEqual(10);
+  expect(getCardValue("K♦")).toEqual(10);
+  expect(getCardValue("J♠")).toEqual(10);
+});
+
 // A with valid suit (because it should specially return 11)
-// Case 1: Ace (A)
 test(`Should return 11 when given an ace card`, () => {
   expect(getCardValue("A♠")).toEqual(11);
 });
