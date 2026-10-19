@@ -127,7 +127,17 @@ test(`Should throw error "Incorrect suit given" when given wrong suit with corre
 });
 
 // number 10 (valid double digit number) with invalid suit
-
+test(`Should throw error "Incorrect suit given" when given wrong suit with correct face 10"`, () => {
+  expect(() => getCardValue("10☺")).toThrow(new Error("Incorrect suit given"));
+});
 // J/Q/K with invalid suit
+test(`Should throw error "Incorrect suit given" when given wrong suit with correct face royals J/Q/K"`, () => {
+  expect(() => getCardValue("J☺")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("Q☺")).toThrow(new Error("Incorrect suit given"));
+  expect(() => getCardValue("K☺")).toThrow(new Error("Incorrect suit given"));
+});
 
 // A with invalid suit
+test(`Should throw error "Incorrect suit given" when given wrong suit with correct face Ace"`, () => {
+  expect(() => getCardValue("A☺")).toThrow(new Error("Incorrect suit given"));
+});
