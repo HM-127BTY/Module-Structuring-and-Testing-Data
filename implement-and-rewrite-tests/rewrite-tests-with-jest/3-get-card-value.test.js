@@ -7,38 +7,6 @@ import { getCardValue } from "../implement/3-get-card-value.js";
 // // please refer to the Jest documentation:
 // // https://jestjs.io/docs/expect#tothrowerror
 
-// test(`Should throw error "Incorrect suit given" when given wrong letter"`, () => {
-//   expect(() => getCardValue("2K")).toThrow(new Error("Incorrect suit given"));
-// });
-
-// test(`Should throw error "Incorrect face given" when given wrong 2 digit number"`, () => {
-//   expect(() => getCardValue("25♠")).toThrow(new Error("Incorrect face given"));
-// });
-
-// test(`Should throw error "Incorrect face given" when given negative number"`, () => {
-//   expect(() => getCardValue("-2♠")).toThrow(new Error("Incorrect face given"));
-// });
-
-// test(`Should throw error "Incorrect face given" when given a lower case Royal"`, () => {
-//   expect(() => getCardValue("k♠")).toThrow(new Error("Incorrect face given"));
-// });
-
-// test(`Should throw error "Incorrect face given" when given a lower case Ace"`, () => {
-//   expect(() => getCardValue("a♠")).toThrow(new Error("Incorrect face given"));
-// });
-
-// test(`Should throw error "Incorrect face given" when given a letter"`, () => {
-//   expect(() => getCardValue("I♠")).toThrow(new Error("Incorrect face given"));
-// });
-
-// test(`Should throw error "Incorrect face given" when given symbol"`, () => {
-//   expect(() => getCardValue("🐱♠")).toThrow(new Error("Incorrect face given"));
-// });
-
-// test(`Should throw error "Input needed" if no imput given`, () => {
-//   expect(() => getCardValue("")).toThrow(new Error("Input needed"));
-// });
-
 // for valid case:
 
 // any of 2-9 (single digit number) with valid suit
@@ -140,4 +108,26 @@ test(`Should throw error "Incorrect suit given" when given wrong suit with corre
 // A with invalid suit
 test(`Should throw error "Incorrect suit given" when given wrong suit with correct face Ace"`, () => {
   expect(() => getCardValue("A☺")).toThrow(new Error("Incorrect suit given"));
+});
+
+test(`Should throw error "Incorrect suit given" when given wrong letter"`, () => {
+  expect(() => getCardValue("2K")).toThrow(new Error("Incorrect suit given"));
+});
+
+test(`Should throw error "Incorrect face given" when given negative number"`, () => {
+  expect(() => getCardValue("-2♠")).toThrow(new Error("Incorrect face given"));
+});
+
+test(`Should throw error "Incorrect face given" when given a lower case Royal"`, () => {
+  expect(() => getCardValue("j♠")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("q♠")).toThrow(new Error("Incorrect face given"));
+  expect(() => getCardValue("k♠")).toThrow(new Error("Incorrect face given"));
+});
+
+test(`Should throw error "Incorrect face given" when given a lower case Ace"`, () => {
+  expect(() => getCardValue("a♠")).toThrow(new Error("Incorrect face given"));
+});
+
+test(`Should throw error "Input needed" if no input given`, () => {
+  expect(() => getCardValue("")).toThrow(new Error("Input needed"));
 });
