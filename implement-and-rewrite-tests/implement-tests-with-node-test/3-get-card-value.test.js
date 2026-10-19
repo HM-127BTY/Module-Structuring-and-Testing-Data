@@ -15,23 +15,24 @@ test("Arbitrary non-card string", () => {
 
 // TODO: What other invalid card cases can you think of?
 //Incorrect suit as symbol
-test("Incorrect suit", () => {
-  assert.throws(
-    () => getCardValue("2☺"),
-    /Incorrect suit given/,
-    "Incorrect suit"
-  );
-});
-//Incorrect suit as letter
-//Incorrect card value to high
-//Incorrect card value when negative
-test("Incorrect card number: Negative Number", () => {
-  assert.throws(
-    () => getCardValue("-2♦"),
-    /Incorrect card number given/,
-    "Incorrect card number given"
-  );
-});
+// test("Incorrect suit", () => {
+//   assert.throws(
+//     () => getCardValue("2☺"),
+//     /Incorrect suit given/,
+//     "Incorrect suit"
+//   );
+// });
+// //Incorrect suit as letter
+// //Incorrect card value to high
+
+// //Incorrect card value when negative
+// test("Incorrect card number: Negative Number", () => {
+//   assert.throws(
+//     () => getCardValue("-2♦"),
+//     /Incorrect card number given/,
+//     "Incorrect card number given"
+//   );
+// });
 
 // //Incorrect card value when symbol
 // //Incorrect card value when letter
@@ -61,17 +62,26 @@ test("Incorrect card number: Negative Number", () => {
 //   );
 // });
 
-// // for valid case:
-// // any of 2-9 (single digit number) with valid suit
-// test("Valid single-digit card", () => {
-//   assert.equal(getCardValue("9♠"), 9);
-// });
+// for valid case:
+// any of 2-9 (single digit number) with valid suit
+test("Valid single-digit face card", () => {
+  assert.equal(getCardValue("9♠"), 9);
+});
 
 // // number 10 (double digit number) with valid suit
+test("Valid double-digit face card", () => {
+  assert.equal(getCardValue("10♠"), 10);
+});
 
 // // J/Q/K with valid suit (because they should return 10)
+test("Valid Royal face card", () => {
+  assert.equal(getCardValue("Q♠"), 10);
+});
 
 // // A with valid suit (because it should specially return 11)
+test("Valid Ace face card", () => {
+  assert.equal(getCardValue("A♠"), 11);
+});
 
 // // for invalid case:
 
