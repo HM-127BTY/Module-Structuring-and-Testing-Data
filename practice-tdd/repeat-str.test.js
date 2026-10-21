@@ -37,6 +37,27 @@ test("should repeat the string count 0 times", () => {
   expect(repeatedStr).toEqual("");
 });
 
+test("should repeat the empty string count 0 times", () => {
+  const str = "";
+  const count = 3;
+  const repeatedStr = repeatStr(str, count);
+  expect(repeatedStr).toEqual("");
+});
+
+test("should repeat the space in string count 3 times", () => {
+  const str = " ";
+  const count = 3;
+  const repeatedStr = repeatStr(str, count);
+  expect(repeatedStr).toEqual("   ");
+});
+
+test("should repeat the symbols in string count 3 times", () => {
+  const str = "@%£$";
+  const count = 3;
+  const repeatedStr = repeatStr(str, count);
+  expect(repeatedStr).toEqual("@%£$@%£$@%£$");
+});
+
 // Case: Handle negative count:
 // Given a target string `str` and a negative integer `count`,
 // When the repeatStr function is called with these inputs,
