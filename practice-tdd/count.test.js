@@ -29,3 +29,38 @@ test("should count 0 with no occurrences of a character", () => {
   const count = countChar(str, char);
   expect(count).toEqual(0);
 });
+
+test("should count 0 with no empty string", () => {
+  const str = "";
+  const char = "b";
+  const count = countChar(str, char);
+  expect(count).toEqual(0);
+});
+
+test("should count multiple occurrences of a character in random string", () => {
+  const str = "accababaade";
+  const char = "a";
+  const count = countChar(str, char);
+  expect(count).toEqual(5);
+});
+
+test("should count multiple occurrences of a character in string with empty spaces", () => {
+  const str = "aa a  aa";
+  const char = "a";
+  const count = countChar(str, char);
+  expect(count).toEqual(5);
+});
+
+test("should count multiple occurrences of a character in string ignoring upper case", () => {
+  const str = "aaAaaa";
+  const char = "a";
+  const count = countChar(str, char);
+  expect(count).toEqual(5);
+});
+
+test("should count multiple occurrences of a character in string ignoring lower case", () => {
+  const str = "aAAaAAA";
+  const char = "A";
+  const count = countChar(str, char);
+  expect(count).toEqual(5);
+});
